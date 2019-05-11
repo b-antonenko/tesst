@@ -1,26 +1,26 @@
 html,
 body {
     margin:0;
-    padding: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     text-align: center;
 }
 
 .people {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    padding: 30px 0 30px 55px;
-    box-sizing: border-box;
-    grid-gap: 30px;
-    margin-right: 55px;
+    grid: auto-flow / repeat(4, auto);
+    padding: 30px 35px;
+    grid-gap: 30px 40px;
+    justify-content: center;
+    text-align: center;
 }
 
 .person {
-    width: 220px;
-    height: 287px;
+    width: 200px;
+    height: 200px;
     position: relative;
     font-size: 18px;
     padding: 10px;
+    transition: transform 1s;
 }
 
 img {
@@ -29,6 +29,7 @@ img {
     height: 200px;
     justify-content: center;
     text-align: center;
+    transition: border-radius 1s;
 }
 
 .rank {
@@ -47,11 +48,12 @@ img {
 
 .name {
     color: #2F4F4F;
+    font-size: 20px;
+    line-height: 23px;
 }
 
 .extra {
     display: none;
-    font-family: Arial;
     font-size: 18px;
     line-height: 21px;
 }
@@ -63,34 +65,34 @@ img {
 }
 
 .person:hover {
-    animation: hover 1s;
     cursor: pointer;
-    transition-duration: .1s;
+    z-index: 1;
+    transform: scale(1.2);
 }
 
 .person:hover img {
     border-radius: 60px;
     background-color: #eee;
-    animation: hover 1s;
-    transition-duration: .1s;
 }
 
 .person:hover .extra {
     display: block;
     cursor: pointer;
-    animation: hover 1s;
-    transition-duration: .1s;
 }
 
-@keyframes hover {
-    from {
-        background: #eee;
-        border-radius: 10px;
-    }
-    to {
-        background: #eee;
-        border-radius: 12px;
-        font-size: 21.6px;
-    }
+.person:hover::after {
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    content: "";
+    width: 220px;
+    height: 287px;
+    background-color: #eeeeee;
+    z-index: -1;
+    top: -10px;
+    left: 0px;
+    right: -10px;
+    bottom: -46px;
+    border-radius: 10px;
 }
 
